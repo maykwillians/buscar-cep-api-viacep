@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:buscar_cep_api_viacep/res/colors/MyColors.dart';
 import 'package:buscar_cep_api_viacep/res/strings/MyStrings.dart';
 import 'package:buscar_cep_api_viacep/res/styles/MyTextStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
 
 class ConsultarCEP extends StatefulWidget {
   @override
@@ -47,9 +51,22 @@ class _ConsultarCEPState extends State<ConsultarCEP> {
                     ),
                   ),
                   Divider(),
-                  MyTextStyle().textCommon("Teste"),
-                  Divider(),
-                  MyTextStyle().textTitleCommon("Título"),
+                  FutureBuilder <Map>(
+                    future: getDados(),
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.none:
+                        case ConnectionState.waiting:
+                          return Text("Aguarde...");
+                        default:
+                          if(snapshot.hasError) {
+                            return Text("Erro!");
+                          } else {
+                            return Text("OK");
+                          }
+                      }
+                    },
+                  )
                 ],
               ),
             )
@@ -59,7 +76,8 @@ class _ConsultarCEPState extends State<ConsultarCEP> {
 
   Future<Map> getDados() async {
 
-
+    http.Response response = await http.get(url);
+    return json.decode(response.body);
   }
 
   TextFormField buildTextFormField(String label) {
