@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-class HexColor {
+class MyColors {
 
   Color branco;
   Color preto;
   Color primary_color;
   Color secundary_color;
 
-  HexColor (){
+  MyColors (){
 
     this.branco = getColorFromHex("#ffffff");
     this.preto = getColorFromHex("#000000");

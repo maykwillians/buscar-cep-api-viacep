@@ -1,5 +1,5 @@
-import 'package:buscar_cep_api_viacep/res/colors/Colors.dart';
-import 'package:buscar_cep_api_viacep/res/strings/Strings.dart';
+import 'package:buscar_cep_api_viacep/res/colors/MyColors.dart';
+import 'package:buscar_cep_api_viacep/res/strings/MyStrings.dart';
 import 'package:buscar_cep_api_viacep/screens/consultar_cep_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +8,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: HexColor().branco,
+        backgroundColor: MyColors().branco,
         appBar: AppBar(
-          backgroundColor: HexColor().secundary_color,
-          title: Text(Strings().app_name),
+          backgroundColor: MyColors().secundary_color,
+          title: Text(MyStrings().app_name),
           centerTitle: true,
         ),
         body: Padding(
@@ -22,8 +22,8 @@ class HomeScreen extends StatelessWidget {
                 Container(
                     height: 60,
                     child: RaisedButton(
-                      child: Text(Strings().bt_iniciar, style: TextStyle(color: HexColor().branco, fontSize: 20)),
-                      color: HexColor().primary_color,
+                      child: Text(MyStrings().bt_iniciar, style: TextStyle(color: MyColors().branco, fontSize: 20)),
+                      color: MyColors().primary_color,
                       onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ConsultarCEP()));
                       },

@@ -1,5 +1,5 @@
-import 'package:buscar_cep_api_viacep/res/colors/Colors.dart';
-import 'package:buscar_cep_api_viacep/res/strings/Strings.dart';
+import 'package:buscar_cep_api_viacep/res/colors/MyColors.dart';
+import 'package:buscar_cep_api_viacep/res/strings/MyStrings.dart';
 import 'package:buscar_cep_api_viacep/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: Strings().title_home,
+        title: MyStrings().title_home,
         theme: ThemeData(
             primarySwatch: Colors.blue,
-            primaryColor: HexColor().primary_color
+            primaryColor: MyColors().primary_color
         ),
         debugShowCheckedModeBanner: false,
         home: HomeScreen()

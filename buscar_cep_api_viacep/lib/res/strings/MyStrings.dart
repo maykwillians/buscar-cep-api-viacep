@@ -1,4 +1,4 @@
-class Strings {
+class MyStrings {
 
   String app_name = "App Consultar CEP";
   String title_home = "Consultar CEP";
